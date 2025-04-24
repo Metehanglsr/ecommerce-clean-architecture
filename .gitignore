@@ -1,0 +1,93 @@
+#################################
+# Visual Studio & .NET
+#################################
+## Build results
+bin/
+obj/
+artifacts/
+project.lock.json
+project.fragment.lock.json
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.psess
+*.vsp
+*.vspx
+*.pidb
+*.sdf
+*.cache
+*.dbmdl
+
+## Visual Studio Code
+.vscode/
+
+## IIS Express
+.vs/
+*.vspscc
+*.vssscc
+*.launch.json
+
+#################################
+# ASP.NET Core
+#################################
+appsettings.json
+appsettings.*.json
+.env
+secrets.json
+
+#################################
+# Entity Framework
+#################################
+Migrations/
+
+#################################
+# Logs
+#################################
+*.log
+logs/
+*.nlog
+
+#################################
+# Publish
+#################################
+*.Publish.xml
+
+#################################
+# Test & Coverage
+#################################
+TestResults/
+coverage/
+
+#################################
+# Rider
+#################################
+.idea/
+
+#################################
+# Resharper
+#################################
+_ReSharper*/
+*.DotSettings.user
+
+#################################
+# OS Junk
+#################################
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.bak
+*.tmp
+
+#################################
+# Node / Frontend
+#################################
+node_modules/
+dist/
+build/

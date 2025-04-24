@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{50845CC0-0462-4824-8C4C-49AC72815CEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceAPI.Domain", "Core\ECommerceAPI.Domain\ECommerceAPI.Domain.csproj", "{DF766E4D-D718-48C0-B07D-9B573F3B9576}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceAPI.Application", "Core\ECommerceAPI.Application\ECommerceAPI.Application.csproj", "{44764A63-E52E-4D84-83EE-37535B6C759B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{0F3EAC27-D763-4E1F-8A55-7794BEEFB93D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceAPI.Infrastructure", "Infrastructure\ECommerceAPI.Infrastructure\ECommerceAPI.Infrastructure.csproj", "{2E73C282-5AFC-4850-9DA8-C66420D0BE73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{EBC6A040-52B6-45AF-A294-FB15FB864978}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceAPI.API", "Presentation\ECommerceAPI.API\ECommerceAPI.API.csproj", "{D1EAC1BF-A6BE-4A96-9E2D-D5AE3809B1D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceAPI.Persistence", "Infrastructure\ECommerceAPI.Persistence\ECommerceAPI.Persistence.csproj", "{B7D74A9B-5E4A-4A2C-8DFC-40F182181E48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF766E4D-D718-48C0-B07D-9B573F3B9576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF766E4D-D718-48C0-B07D-9B573F3B9576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF766E4D-D718-48C0-B07D-9B573F3B9576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF766E4D-D718-48C0-B07D-9B573F3B9576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44764A63-E52E-4D84-83EE-37535B6C759B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44764A63-E52E-4D84-83EE-37535B6C759B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44764A63-E52E-4D84-83EE-37535B6C759B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44764A63-E52E-4D84-83EE-37535B6C759B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E73C282-5AFC-4850-9DA8-C66420D0BE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E73C282-5AFC-4850-9DA8-C66420D0BE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E73C282-5AFC-4850-9DA8-C66420D0BE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E73C282-5AFC-4850-9DA8-C66420D0BE73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1EAC1BF-A6BE-4A96-9E2D-D5AE3809B1D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1EAC1BF-A6BE-4A96-9E2D-D5AE3809B1D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1EAC1BF-A6BE-4A96-9E2D-D5AE3809B1D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1EAC1BF-A6BE-4A96-9E2D-D5AE3809B1D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D74A9B-5E4A-4A2C-8DFC-40F182181E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D74A9B-5E4A-4A2C-8DFC-40F182181E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D74A9B-5E4A-4A2C-8DFC-40F182181E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D74A9B-5E4A-4A2C-8DFC-40F182181E48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF766E4D-D718-48C0-B07D-9B573F3B9576} = {50845CC0-0462-4824-8C4C-49AC72815CEB}
+		{44764A63-E52E-4D84-83EE-37535B6C759B} = {50845CC0-0462-4824-8C4C-49AC72815CEB}
+		{2E73C282-5AFC-4850-9DA8-C66420D0BE73} = {0F3EAC27-D763-4E1F-8A55-7794BEEFB93D}
+		{D1EAC1BF-A6BE-4A96-9E2D-D5AE3809B1D7} = {EBC6A040-52B6-45AF-A294-FB15FB864978}
+		{B7D74A9B-5E4A-4A2C-8DFC-40F182181E48} = {0F3EAC27-D763-4E1F-8A55-7794BEEFB93D}
+	EndGlobalSection
+EndGlobal
