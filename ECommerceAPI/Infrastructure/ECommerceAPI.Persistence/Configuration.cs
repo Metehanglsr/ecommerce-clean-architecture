@@ -14,7 +14,7 @@ namespace ECommerceAPI.Persistence
             get
             {
                 ConfigurationManager configurationManager = new();
-                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../ECommerceAPI.API"));
+                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../ECommerceAPI.API"));
                 configurationManager.AddJsonFile("appsettings.json");
                 return configurationManager.GetConnectionString("MySql") ?? string.Empty;
             }
