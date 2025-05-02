@@ -25,24 +25,10 @@ namespace ECommerceAPI.API.Controllers
             return Ok(customerList);
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            List<Customer> customers = new();
-            Customer customer = new Customer
-                {
-                Name = "mete4",
-                SurName = "han"
-            };
-            Customer customer2 = new Customer
-            {
-                Name = "mete5",
-                SurName = "han"
-            };
-            customers.Add(customer);
-            customers.Add(customer2);
-            await _customerWriteRepository.AddRangeAsync(customers);
-            await _customerWriteRepository.SaveAsync();
-            return Ok();
+            var customerList =_customerReadRepository.GetAll();
+            return Ok(customerList);
         }
     }
 }
