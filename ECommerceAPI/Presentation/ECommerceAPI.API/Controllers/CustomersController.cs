@@ -25,10 +25,21 @@ namespace ECommerceAPI.API.Controllers
             return Ok(customerList);
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var customerList =_customerReadRepository.GetAll();
-            return Ok(customerList);
+            var customer = await _customerReadRepository.GetByIdAsync("2adeb594-ac57-4a1f-bde8-95253ecb282b");
+            if(customer!=null)
+            {
+                customer.Name = "metehan";
+                _customerWriteRepository.Update(customer);
+            }
+            await _customerWriteRepository.AddAsync(new Customer
+                {
+                Name = "mete",
+                SurName="han"
+            });
+            await _customerWriteRepository.SaveAsync();
+            return Ok();
         }
     }
 }
