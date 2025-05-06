@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ECommerceAPI.Application.Features.Commands.Product.CreateProduct;
+using ECommerceAPI.Application.Features.Queries.Product.GetAllProducts;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceAPI.API.Controllers
@@ -7,10 +10,25 @@ namespace ECommerceAPI.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetProducts()
+        readonly IMediator _mediator;
+
+        public ProductsController(IMediator mediator)
         {
-            return Ok();
+            _mediator = mediator;
+        }
+
+        [HttpGet("getAllProducts")]
+        public async Task<IActionResult> GetAllProducts(GetAllProductsQueryRequest request)
+        {
+            GetAllProductsQueryResponse response = await _mediator.Send(request);
+            return Ok(response.products);
+        }
+
+        [HttpPost("addProduct")]
+        public async Task<IActionResult> AddProduct(CreateProductCommandRequest request)
+        {
+            CreateProductCommandResponse response = await _mediator.Send(request);
+            return Ok(response);
         }
     }
 }

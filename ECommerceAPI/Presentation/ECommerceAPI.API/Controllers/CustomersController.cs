@@ -1,6 +1,8 @@
-﻿using ECommerceAPI.Application.Repositories;
+﻿using ECommerceAPI.Application.Features.Queries.Customer.GetByIdCustomer;
+using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Domain.Entities;
 using ECommerceAPI.Persistence.Repositories;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,11 +14,13 @@ namespace ECommerceAPI.API.Controllers
     {
         private readonly ICustomerReadRepository _customerReadRepository;
         private readonly ICustomerWriteRepository _customerWriteRepository;
+        readonly IMediator _mediator;
 
-        public CustomersController(ICustomerReadRepository customerReadRepository, ICustomerWriteRepository customerWriteRepository)
+        public CustomersController(ICustomerReadRepository customerReadRepository, ICustomerWriteRepository customerWriteRepository, IMediator mediator)
         {
             _customerReadRepository = customerReadRepository;
             _customerWriteRepository = customerWriteRepository;
+            _mediator = mediator;
         }
         [HttpGet("getall")]
         public IActionResult GetAll()
@@ -25,21 +29,10 @@ namespace ECommerceAPI.API.Controllers
             return Ok(customerList);
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(GetByIdCustomerQueryRequest getByIdCustomerQueryRequest)
         {
-            var customer = await _customerReadRepository.GetByIdAsync("2adeb594-ac57-4a1f-bde8-95253ecb282b");
-            if(customer!=null)
-            {
-                customer.Name = "metehan";
-                _customerWriteRepository.Update(customer);
-            }
-            await _customerWriteRepository.AddAsync(new Customer
-                {
-                Name = "mete",
-                SurName="han"
-            });
-            await _customerWriteRepository.SaveAsync();
-            return Ok();
+            GetByIdCustomerQueryResponse response = await _mediator.Send(getByIdCustomerQueryRequest);
+            return Ok(response);
         }
     }
 }
