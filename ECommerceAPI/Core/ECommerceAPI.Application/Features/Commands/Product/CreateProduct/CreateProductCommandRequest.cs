@@ -10,7 +10,7 @@ namespace ECommerceAPI.Application.Features.Commands.Product.CreateProduct
     public sealed class CreateProductCommandRequest : IRequest<CreateProductCommandResponse>
     {
         public string Name { get; set; } = string.Empty;
-        public int Price { get; set; }
-        public long Stock { get; set; }
+        public long Price { get; set; }
+        public int Stock { get; set; }
     }
 }

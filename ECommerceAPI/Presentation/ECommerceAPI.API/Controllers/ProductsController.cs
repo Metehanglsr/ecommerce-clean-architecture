@@ -18,12 +18,17 @@ namespace ECommerceAPI.API.Controllers
         }
 
         [HttpGet("getAllProducts")]
-        public async Task<IActionResult> GetAllProducts(GetAllProductsQueryRequest request)
+        public async Task<IActionResult> GetAllProducts([FromQuery] GetAllProductsQueryRequest request)
         {
             GetAllProductsQueryResponse response = await _mediator.Send(request);
             return Ok(response.products);
         }
 
+        [HttpGet("Hello")]
+        public IActionResult SayHello()
+        {
+            return Ok("hello");
+        }
         [HttpPost("addProduct")]
         public async Task<IActionResult> AddProduct(CreateProductCommandRequest request)
         {

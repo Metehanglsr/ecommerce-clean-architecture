@@ -20,7 +20,7 @@ namespace ECommerceAPI.Application.Features.Queries.Product.GetAllProducts
 
         public Task<GetAllProductsQueryResponse> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
-            var productList = _productReadRepository.GetAll(false).Select(p => new P.Product
+            var productList = _productReadRepository.GetAll(false).Skip(request.Page * request.Size).Take(request.Size).Select(p => new P.Product
             {
                 Id = p.Id,
                 Name = p.Name,

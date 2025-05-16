@@ -7,16 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Commands\Customer\**" />
+    <EmbeddedResource Remove="Features\Commands\Customer\**" />
+    <None Remove="Features\Commands\Customer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.15" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ECommerceAPI.Domain\ECommerceAPI.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Commands\Customer\" />
   </ItemGroup>
 
 </Project>
