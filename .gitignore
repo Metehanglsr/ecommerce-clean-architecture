@@ -1,14 +1,54 @@
 #################################
-# Visual Studio & .NET
+# Build outputs
 #################################
-## Build results
 bin/
 obj/
 artifacts/
 project.lock.json
 project.fragment.lock.json
 
-## User-specific files
+#################################
+# Publish output
+#################################
+*.Publish.xml
+publish/
+out/
+
+#################################
+# ASP.NET Core
+#################################
+appsettings.json
+appsettings.*.json
+.env
+secrets.json
+.github/
+
+# Don't include anything in wwwroot
+wwwroot/
+
+# Resource folders
+resource-product-images/
+uploads/
+images/
+
+#################################
+# Entity Framework
+#################################
+Migrations/
+
+#################################
+# Logs & diagnostic files
+#################################
+*.log
+*.nlog
+logs/
+log/
+Log/
+log-output.txt
+
+#################################
+# User-specific Visual Studio files
+#################################
 *.user
 *.suo
 *.userosscache
@@ -21,48 +61,26 @@ project.fragment.lock.json
 *.cache
 *.dbmdl
 
-## Visual Studio Code
-.vscode/
-
-## IIS Express
+#################################
+# Visual Studio settings
+#################################
 .vs/
+.vscode/
+*.launch.json
 *.vspscc
 *.vssscc
-*.launch.json
 
 #################################
-# ASP.NET Core
-#################################
-appsettings.json
-appsettings.*.json
-.env
-secrets.json
-
-#################################
-# Entity Framework
-#################################
-Migrations/
-
-#################################
-# Logs
-#################################
-*.log
-logs/
-*.nlog
-
-#################################
-# Publish
-#################################
-*.Publish.xml
-
-#################################
-# Test & Coverage
+# Test & coverage
 #################################
 TestResults/
 coverage/
+*.coverage
+*.coveragexml
+*.trx
 
 #################################
-# Rider
+# JetBrains Rider
 #################################
 .idea/
 
@@ -73,7 +91,7 @@ _ReSharper*/
 *.DotSettings.user
 
 #################################
-# OS Junk
+# OS-specific junk files
 #################################
 *.DS_Store
 *.AppleDouble
@@ -86,8 +104,13 @@ Desktop.ini
 *.tmp
 
 #################################
-# Node / Frontend
+# Node / Frontend related
 #################################
 node_modules/
 dist/
 build/
+.cache/
+.npm/
+.yarn/
+.pnp.*
+*.tgz

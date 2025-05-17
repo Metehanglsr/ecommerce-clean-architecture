@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ECommerceAPI.Domain.Entities;
+using P = ECommerceAPI.Domain.Entities;
 
 namespace ECommerceAPI.Application.Repositories
 {
-    public interface IProductReadRepository : IReadRepository<Product>
+    public interface IFileReadRepository : IReadRepository<P.File>
     {
     }
 }
