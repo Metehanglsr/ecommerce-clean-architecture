@@ -10,6 +10,6 @@ namespace ECommerceAPI.Application.Features.Queries.ProductImageFile.GetAllProdu
 {
     public sealed class GetAllProductImageQueryResponse
     {
-        public FileContentDto FileContent { get; set; } = default!;
+        public List<string> Files { get; set; } = default!;
     }
 }

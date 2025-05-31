@@ -12,6 +12,7 @@ namespace ECommerceAPI.Domain.Entities
     {
         public string Name { get; set; } = string.Empty;
         public string Path { get; set; } = string.Empty;
+        public string Storage { get; set; } = string.Empty;
         [NotMapped]
         public override DateTime UpdatedAt { get => base.UpdatedAt; set => base.UpdatedAt = value; }
     }

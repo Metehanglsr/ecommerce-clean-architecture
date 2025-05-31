@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ECommerceAPI.Application.Abstractions.Storage;
 using ECommerceAPI.Application.DTOs;
 using ECommerceAPI.Application.Repositories;
-using ECommerceAPI.Application.Services;
 using MediatR;
 using P = ECommerceAPI.Domain.Entities;
 
@@ -15,12 +15,12 @@ namespace ECommerceAPI.Application.Features.Commands.ProductImageFile.UploadProd
     public sealed class UploadProductImageCommandHandler : IRequestHandler<UploadProductImageCommandRequest,UploadProductImageCommandResponse>
     {
         readonly IProductImageFileWriteRepository _productImageFileWriteRepository;
-        readonly IFileService _fileService;
+        readonly IStorageService _storageService;
 
-        public UploadProductImageCommandHandler(IProductImageFileWriteRepository productImageFileWriteRepository, IFileService fileService)
+        public UploadProductImageCommandHandler(IProductImageFileWriteRepository productImageFileWriteRepository, IStorageService storageService)
         {
             _productImageFileWriteRepository = productImageFileWriteRepository;
-            _fileService = fileService;
+            _storageService = storageService;
         }
 
         public async Task<UploadProductImageCommandResponse> Handle(UploadProductImageCommandRequest request, CancellationToken cancellationToken)
@@ -28,11 +28,12 @@ namespace ECommerceAPI.Application.Features.Commands.ProductImageFile.UploadProd
             if (request.Files == null || request.Files.Count == 0)
                 return new() { Message = "No File Found" };
 
-            FileDto result = await _fileService.UploadAsync(request.Files, request.UploadPath);
+            FileDto result = await _storageService.UploadAsync(request.Files, request.UploadPath);
             List<P.ProductImageFile> productImageFiles = result.Files.Select(file => new P.ProductImageFile
             {
                 Name = file.uniquePath,
                 Path = request.Path,
+                Storage = _storageService.StorageName
             }).ToList();
             if (result.Files.Count == 0)
                 return new() { Message = "File upload failed because none of the files had an allowed extension." };

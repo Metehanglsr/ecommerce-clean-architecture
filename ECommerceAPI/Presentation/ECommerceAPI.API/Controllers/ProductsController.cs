@@ -1,9 +1,8 @@
-﻿using ECommerceAPI.Application.Features.Commands.Product.CreateProduct;
+﻿using ECommerceAPI.Application.Abstractions.Storage;
+using ECommerceAPI.Application.Features.Commands.Product.CreateProduct;
 using ECommerceAPI.Application.Features.Commands.ProductImageFile.UploadProductImage;
-using ECommerceAPI.Application.Features.Queries.Customer.GetByIdCustomer;
 using ECommerceAPI.Application.Features.Queries.Product.GetAllProducts;
 using ECommerceAPI.Application.Features.Queries.ProductImageFile.GetAllProductImages;
-using ECommerceAPI.Application.Features.Queries.ProductImageFile.GetByIdProductImages;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,12 +14,12 @@ namespace ECommerceAPI.API.Controllers
     {
         readonly IMediator _mediator;
         readonly IWebHostEnvironment _env;
+        readonly string path = "resource-product-images";
 
         public ProductsController(IMediator mediator, IWebHostEnvironment env)
         {
             _mediator = mediator;
             _env = env;
-
         }
 
         [HttpGet]
@@ -42,7 +41,6 @@ namespace ECommerceAPI.API.Controllers
             if (!Request.HasFormContentType)
                 return BadRequest("No File Found");
             var files = Request.Form.Files;
-            string path = "resource-product-images";
             string uploadPath = Path.Combine(_env.WebRootPath, path);
             UploadProductImageCommandResponse response = await _mediator.Send(new UploadProductImageCommandRequest
             {
@@ -56,14 +54,7 @@ namespace ECommerceAPI.API.Controllers
         public async Task<IActionResult> GetUploadedFiles([FromQuery] GetAllProductImageQueryRequest request)
         {
             GetAllProductImageQueryResponse response = await _mediator.Send(request);
-            return File(response.FileContent.Bytes, response.FileContent.ContentType, response.FileContent.FileName);
-        }
-
-        [HttpGet("{Id}")]
-        public async Task<IActionResult> GetUploadedFileById([FromRoute] GetByIdProductImagesQueryRequest request)
-        {
-            GetByIdProductImagesQueryResponse response = await _mediator.Send(request);
-            return File(response.FileContent.Bytes, response.FileContent.ContentType, response.FileContent.FileName);
+            return Ok(response);
         }
     }
 }

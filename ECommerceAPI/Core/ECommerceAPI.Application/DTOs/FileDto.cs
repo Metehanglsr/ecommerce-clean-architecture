@@ -9,7 +9,7 @@ namespace ECommerceAPI.Application.DTOs
 {
     public sealed class FileDto
     {
-        public List<(IFormFile file,string uniquePath)> Files { get; set; } = default!;
+        public List<(IFormFile file, string uniquePath)> Files { get; set; } = default!;
         public string Message { get; set; } = string.Empty;
     }
 }
