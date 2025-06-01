@@ -29,7 +29,6 @@ wwwroot/
 # Resource folders
 resource-product-images/
 uploads/
-images/
 
 #################################
 # Entity Framework
