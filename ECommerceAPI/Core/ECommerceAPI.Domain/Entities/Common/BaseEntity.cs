@@ -16,5 +16,6 @@ namespace ECommerceAPI.Domain.Entities.Common
         public DateTime CreatedAt { get; set; }
         public DateTime DeletedAt { get; set; }
         virtual public DateTime UpdatedAt { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }
