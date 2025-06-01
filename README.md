@@ -23,6 +23,14 @@ The project is structured based on **Clean Architecture**, which promotes indepe
 
 ---
 
+
+<h1 align="center">UML Diagram</h1>
+
+![Uml Image](./Images/UmlDiagram.png)
+
+
+---
+
 ## 🧰 Core Features
 
 ✅ **Clean Architecture**  
