@@ -1,8 +1,10 @@
 ﻿using ECommerceAPI.Application.Abstractions.Storage;
+using ECommerceAPI.Application.Features.Commands.Category.Create;
 using ECommerceAPI.Application.Features.Commands.Product.CreateProduct;
 using ECommerceAPI.Application.Features.Commands.ProductImageFile.UploadProductImage;
 using ECommerceAPI.Application.Features.Queries.Product.GetAllProducts;
 using ECommerceAPI.Application.Features.Queries.ProductImageFile.GetAllProductImages;
+using ECommerceAPI.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,10 +18,20 @@ namespace ECommerceAPI.API.Controllers
         readonly IWebHostEnvironment _env;
         readonly string path = "resource-product-images";
 
+
         public ProductsController(IMediator mediator, IWebHostEnvironment env)
         {
             _mediator = mediator;
             _env = env;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddCategory(CreateCategoryCommandRequest request)
+        {
+            var response = await _mediator.Send(request);
+            if (response.Errors?.Count > 0)
+                return BadRequest(response.Errors);
+            return Ok("Category succesfuly added");
         }
 
         [HttpGet]
