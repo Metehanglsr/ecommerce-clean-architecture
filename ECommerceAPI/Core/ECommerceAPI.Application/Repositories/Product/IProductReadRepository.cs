@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ECommerceAPI.Domain.Entities;
 
-namespace ECommerceAPI.Application.Repositories
+namespace ECommerceAPI.Application.Repositories;
+
+public interface IProductReadRepository : IReadRepository<Product>
 {
-    public interface IProductReadRepository : IReadRepository<Product>
-    {
-    }
 }

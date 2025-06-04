@@ -19,8 +19,26 @@ public static class ServiceRegistration
         services.AddScoped<ICustomerReadRepository,CustomerReadRepository>();
         services.AddScoped<ICustomerWriteRepository,CustomerWriteRepository>();
 
+        services.AddScoped<IAddressReadRepository,AddressReadRepository>();
+        services.AddScoped<IAddressWriteRepository,AddressWriteRepository>();
+
         services.AddScoped<IProductReadRepository,ProductReadRepository>();
         services.AddScoped<IProductWriteRepository,ProductWriteRepository>();
+
+        services.AddScoped<ICategoryReadRepository, CategoryReadRepository>();
+        services.AddScoped<ICategoryWriteRepository, CategoryWriteRepository>();
+
+        services.AddScoped<IBasketItemReadRepository, BasketItemReadRepository>();
+        services.AddScoped<IBasketItemWriteRepository, BasketItemWriteRepository>();
+
+        services.AddScoped<IBasketReadRepository, BasketReadRepository>();
+        services.AddScoped<IBasketWriteRepository, BasketWriteRepository>();
+
+        services.AddScoped<IOrderReadRepository, OrderReadRepository>();
+        services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+
+        services.AddScoped<IOrderItemReadRepository, OrderItemReadRepository>();
+        services.AddScoped<IOrderItemWriteRepository, OrderItemWriteRepository>();
 
         services.AddScoped<IFileReadRepository, FileReadRepository>();
         services.AddScoped<IFileWriteRepository, FileWriteRepository>();

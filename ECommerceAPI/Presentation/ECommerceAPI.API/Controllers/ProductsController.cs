@@ -1,4 +1,5 @@
-﻿using ECommerceAPI.Application.Abstractions.Storage;
+﻿using System.Net;
+using ECommerceAPI.Application.Abstractions.Storage;
 using ECommerceAPI.Application.Features.Commands.Category.Create;
 using ECommerceAPI.Application.Features.Commands.Product.CreateProduct;
 using ECommerceAPI.Application.Features.Commands.ProductImageFile.UploadProductImage;
@@ -6,6 +7,7 @@ using ECommerceAPI.Application.Features.Queries.Product.GetAllProducts;
 using ECommerceAPI.Application.Features.Queries.ProductImageFile.GetAllProductImages;
 using ECommerceAPI.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceAPI.API.Controllers
@@ -41,6 +43,13 @@ namespace ECommerceAPI.API.Controllers
             return Ok(response.products);
         }
 
+        //[HttpGet]
+        //public async Task<IActionResult> GetProductsById([FromQuery] GetProductsByIdQueryRequest request)
+        //{
+        //    GetProductsByIdQueryResponse response = await _mediator.Send(request);
+        //    return Ok(response.products);
+        //}
+
         [HttpPost]
         public async Task<IActionResult> AddProduct(CreateProductCommandRequest request)
         {
@@ -68,5 +77,32 @@ namespace ECommerceAPI.API.Controllers
             GetAllProductImageQueryResponse response = await _mediator.Send(request);
             return Ok(response);
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> Post(CreateProductCommandRequest createProductCommandRequest)
+        //{
+        //    CreateProductCommandResponse response = await _mediator.Send(createProductCommandRequest);
+        //    return StatusCode((int)HttpStatusCode.Created);
+        //}
+
+        //[HttpPut]
+        //public async Task<IActionResult> Put([FromBody] UpdateProductCommandRequest updateProductCommandRequest)
+        //{
+        //    UpdateProductCommandResponse response = await _mediator.Send(updateProductCommandRequest);
+        //    return Ok();
+        //}
+
+        //[HttpDelete("{Id}")]
+        //public async Task<IActionResult> Delete([FromRoute] RemoveProductCommandRequest removeProductCommandRequest)
+        //{
+        //    RemoveProductCommandResponse response = await _mediator.Send(removeProductCommandRequest);
+        //    return Ok();
+        //}
+
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteProductImage([FromRoute] RemoveProductImageCommandRequest removeProductImageCommandRequest, [FromQuery] string imageId)
+        //{
+        //    return Ok();
+        //}
     }
 }

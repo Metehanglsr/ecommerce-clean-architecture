@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using P = ECommerceAPI.Domain.Entities;
 
-namespace ECommerceAPI.Application.Repositories
+namespace ECommerceAPI.Application.Repositories;
+
+public interface IFileReadRepository : IReadRepository<P.File>
 {
-    public interface IFileReadRepository : IReadRepository<P.File>
-    {
-    }
 }

@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerceAPI.Application.Repositories
+namespace ECommerceAPI.Application.Repositories;
+
+public interface IWriteRepository<T> : IRepository<T> where T : class
 {
-    public interface IWriteRepository<T> : IRepository<T> where T : class
-    {
-        Task<bool> AddAsync(T entity);
-        Task<bool> AddRangeAsync(List<T> entities);
-        bool Remove(T entity);
-        Task<bool> RemoveAsync(string id);
-        bool Update(T model);
-        public Task<int> SaveAsync();
-    }
+    Task<bool> AddAsync(T entity);
+    Task<bool> AddRangeAsync(List<T> entities);
+    bool Remove(T entity);
+    Task<bool> RemoveAsync(string id);
+    bool Update(T model);
+    public Task<int> SaveAsync();
 }

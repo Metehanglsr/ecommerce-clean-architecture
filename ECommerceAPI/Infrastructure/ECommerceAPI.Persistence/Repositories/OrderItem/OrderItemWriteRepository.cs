@@ -4,9 +4,9 @@ using ECommerceAPI.Persistence.Contexts;
 
 namespace ECommerceAPI.Persistence.Repositories;
 
-public sealed class CustomerWriteRepository : WriteRepository<Customer>, ICustomerWriteRepository
+public sealed class OrderItemWriteRepository : WriteRepository<OrderItem>, IOrderItemWriteRepository
 {
-    public CustomerWriteRepository(ECommerceAPIDbContext context) : base(context)
+    public OrderItemWriteRepository(ECommerceAPIDbContext context) : base(context)
     {
     }
 }

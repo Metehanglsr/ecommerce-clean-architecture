@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ECommerceAPI.Application.Repositories;
+﻿using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Persistence.Contexts;
 using P = ECommerceAPI.Domain.Entities;
 
-namespace ECommerceAPI.Persistence.Repositories
+namespace ECommerceAPI.Persistence.Repositories;
+
+public sealed class FileWriteRepository : WriteRepository<P.File>, IFileWriteRepository
 {
-    public sealed class FileWriteRepository : WriteRepository<P.File>, IFileWriteRepository
+    public FileWriteRepository(ECommerceAPIDbContext context) : base(context)
     {
-        public FileWriteRepository(ECommerceAPIDbContext context) : base(context)
-        {
-        }
     }
 }

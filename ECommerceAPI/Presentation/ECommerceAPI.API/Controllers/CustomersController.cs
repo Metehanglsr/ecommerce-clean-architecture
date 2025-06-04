@@ -1,6 +1,7 @@
 ﻿using ECommerceAPI.Application.Features.Queries.Customer.GetByIdCustomer;
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Domain.Entities;
+using ECommerceAPI.Persistence.Contexts;
 using ECommerceAPI.Persistence.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -12,15 +13,10 @@ namespace ECommerceAPI.API.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly ICustomerReadRepository _customerReadRepository;
-        private readonly ICustomerWriteRepository _customerWriteRepository;
         readonly IMediator _mediator;
         readonly IUnitOfWork _unitOfWork;
-
-        public CustomersController(ICustomerReadRepository customerReadRepository, ICustomerWriteRepository customerWriteRepository, IMediator mediator, IUnitOfWork unitOfWork)
+        public CustomersController(IMediator mediator, IUnitOfWork unitOfWork)
         {
-            _customerReadRepository = customerReadRepository;
-            _customerWriteRepository = customerWriteRepository;
             _mediator = mediator;
             _unitOfWork = unitOfWork;
         }
