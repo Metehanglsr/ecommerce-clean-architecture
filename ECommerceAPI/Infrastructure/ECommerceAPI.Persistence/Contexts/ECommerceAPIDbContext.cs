@@ -5,16 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using ECommerceAPI.Domain.Entities;
 using ECommerceAPI.Domain.Entities.Common;
+using ECommerceAPI.Domain.Entities.Identity;
 using ECommerceAPI.Persistence.Configurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceAPI.Persistence.Contexts
 {
-    public sealed class ECommerceAPIDbContext : DbContext
+    public sealed class ECommerceAPIDbContext : IdentityDbContext<AppUser,AppRole,string>
     {
         public ECommerceAPIDbContext(DbContextOptions options) : base(options)
         {
         }
+
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }

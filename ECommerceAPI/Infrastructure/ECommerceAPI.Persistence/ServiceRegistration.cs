@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ECommerceAPI.Application.Repositories;
+using ECommerceAPI.Domain.Entities.Identity;
 using ECommerceAPI.Persistence.Contexts;
 using ECommerceAPI.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -51,9 +52,11 @@ public static class ServiceRegistration
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+
         services.AddDbContext<ECommerceAPIDbContext>(options =>
             options.UseMySql(Configuration.ConnectionString,
                 new MySqlServerVersion(new Version(8, 0)))
         );
+        services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ECommerceAPIDbContext>();
     }
 }
