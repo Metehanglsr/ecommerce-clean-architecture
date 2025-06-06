@@ -40,7 +40,7 @@ The project is structured based on **Clean Architecture**, which promotes indepe
 ✅ **Pagination Support**  
 ✅ **Dockerized MySQL + phpMyAdmin**  
 ✅ **Modular & Testable Design**  
-🚧 **JWT Authentication** *(planned for future implementation)*
+✅ **JWT Authentication**
 
 ---
 
@@ -52,7 +52,8 @@ The project is structured based on **Clean Architecture**, which promotes indepe
 - **Docker & Docker Compose**
 - **MySQL** (via Docker)
 - **phpMyAdmin** (via Docker)
-
+- **JWT Authentication**
+  
 ---
 
 ## 🚀 Getting Started
@@ -114,10 +115,11 @@ The project applies Command and Query Responsibility Segregation (CQRS) using Me
 
 ---
 
-## 🔐 JWT Authentication (Coming Soon)
-The system is prepared for JWT-based authentication and role-based authorization. This will secure protected routes and enable user-based access control.
+## 🔐 JWT Authentication
 
-- **Planned Features:
+The system is integrated with JWT-based authentication and role-based authorization. Protected routes are secured, enabling user-based access control.
+
+- **Implemented Features:**
 
   - User registration & login
 
