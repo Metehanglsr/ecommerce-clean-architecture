@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using ECommerceAPI.Application.Abstractions.Storage;
 using ECommerceAPI.Application.Abstractions.Storage.Local;
+using ECommerceAPI.Application.Abstractions.Token;
 using ECommerceAPI.Infrastructure.Enums;
 using ECommerceAPI.Infrastructure.Services.Storage;
 using ECommerceAPI.Infrastructure.Services.Storage.Aws;
 using ECommerceAPI.Infrastructure.Services.Storage.Azure;
 using ECommerceAPI.Infrastructure.Services.Storage.Local;
+using ECommerceAPI.Infrastructure.Services.Token;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ECommerceAPI.Infrastructure
@@ -19,6 +21,7 @@ namespace ECommerceAPI.Infrastructure
         public static void AddInfrastructureServices(this IServiceCollection services)
         {
             services.AddScoped<IStorageService,StorageService>();
+            services.AddScoped<ITokenHandler,TokenHandler>();
         }
         public static void AddStorage<T>(this IServiceCollection serviceCollection) where T : class,  IStorage
         {

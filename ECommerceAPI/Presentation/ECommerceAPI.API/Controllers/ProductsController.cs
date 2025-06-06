@@ -37,6 +37,7 @@ namespace ECommerceAPI.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(AuthenticationSchemes = "Admin")]
         public async Task<IActionResult> GetAllProducts([FromQuery] GetAllProductsQueryRequest request)
         {
             GetAllProductsQueryResponse response = await _mediator.Send(request);
